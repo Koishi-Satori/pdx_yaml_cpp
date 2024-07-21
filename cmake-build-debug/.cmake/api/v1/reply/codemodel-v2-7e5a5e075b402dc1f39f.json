@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "pdx_yaml_native",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "pdx_yaml_native::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdx_yaml_native-Debug-74f61daa66ebdf47eaae.json",
+					"name" : "pdx_yaml_native",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdx_yaml_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdx_yaml_py-Debug-49f0852da3fade917c10.json",
+					"name" : "pdx_yaml_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pdx_yaml_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pdx_yaml_test-Debug-975eae419f3e8503c8c8.json",
+					"name" : "pdx_yaml_test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/koishi/projects/pdx_yaml_native/cmake-build-debug",
+		"source" : "/home/koishi/projects/pdx_yaml_native"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
