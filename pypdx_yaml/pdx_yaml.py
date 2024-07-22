@@ -1,10 +1,18 @@
 import copy
 import ctypes
 import os
+import platform
+import sys
 
 # 将编译后的动态链接库放置于此
 # 并将该处的动态链接库名字改成正确的文件名
-__lib_path__ = os.path.dirname(__file__) + "/libpdx_yaml_py.so"
+__lib_path__: str
+if sys.platform.startswith("linux"):
+    __lib_path__ = os.path.dirname(__file__) + "/libpdx_yaml_py.so"
+elif sys.platform.startswith("win"):
+    __lib_path__ = os.path.dirname(__file__) + "/pdx_yaml_py.dll"
+else:
+    __lib_path__ = os.path.dirname(__file__) + "/libpdx_yaml_py.so"
 __lib__ = ctypes.cdll.LoadLibrary(__lib_path__)
 
 
