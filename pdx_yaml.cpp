@@ -47,7 +47,7 @@ namespace pdx_yaml {
             else
                 break;
         }
-        // if current is nullptr, maybe we meet a empty file.
+        // if current is nullptr, maybe we meet an empty file.
         // so just return.
         if (current == nullptr) {
             instance->language = "EMPTY_FILE";
@@ -342,6 +342,12 @@ namespace pdx_yaml {
 
     pdx_localisation::~pdx_localisation() {
         delete language;
+        for (const auto &item : *comments) {
+            delete item;
+        }
+        for (const auto &item : *entries) {
+            delete item;
+        }
         comments->clear();
         entries->clear();
         delete comments;

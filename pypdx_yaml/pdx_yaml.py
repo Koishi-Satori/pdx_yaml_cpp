@@ -17,6 +17,14 @@ __lib__ = ctypes.cdll.LoadLibrary(__lib_path__)
 
 
 def load_function_ptr(func_name: str, arg_types: list, ret_type):
+    """
+    Load a function pointer from the dynamic lib.
+    This is an internal function, so you should never invoke this.
+    :param func_name: name of the function to be loaded.
+    :param arg_types: the args C types list, such as [ctypes.c_void_p]
+    :param ret_type: the returned C type.
+    :return: a function pointer.
+    """
     f_ptr = __lib__.__getattr__(func_name)
     f_ptr.argtypes = arg_types
     f_ptr.restype = ret_type
@@ -43,10 +51,22 @@ c_func_free_ptr = load_function_ptr("free_ptr", [ctypes.c_void_p], ctypes.c_int)
 
 
 class PtrRef:
+    """
+    This class holds a pointer.
+    """
+
     def free_ptr(self):
+        """
+        Free the pointer held by this class.
+        :return: None.
+        """
         pass
 
     def get_ptr(self):
+        """
+        Get the pointer held by this class.
+        :return: a pointer, might be ctypes.c_char_p, ctypes.c_void_p or other ctypes pointer type.
+        """
         pass
 
 
@@ -90,7 +110,10 @@ class PdxLocalisationPtr(PtrRef):
         self.__ptr = ref_ptr
 
     def get_localisation(self) -> PdxLocalisation:
-        pass
+        language = get_language(self)
+        comments = get_comments(self)
+        entries = get_entries(self)
+        return PdxLocalisation(language, comments, entries)
 
     def free_ptr(self):
         c_func_free_ptr(self.__ptr)
